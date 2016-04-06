@@ -1,38 +1,29 @@
-﻿
+﻿using System.Collections.Generic;
+using Encryption.Framework.Algorithms;
+using NUnit.Framework;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+
 namespace Encryption.Tests.Algorithms
 {
-    using System.Collections.Generic;
-    using Framework.Algorithms;
-    using NUnit.Framework;
-    using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
-
     [TestFixture]
     [Category("AES")]
     public class AesTests
     {
-        private Aes _aes;
-
-        [OneTimeSetUp]
-        public void Init()
-        {
-            _aes = new Aes();
-        }
-
         [Test]
         [TestCaseSource(nameof(AesEncryptTestCases))]
-        public void AesEncryptTest(string text, string key, string iv)
+        public void AesEncrypt_WithValidData_ShouldReturnEncryptedString(string text, string key, string iv)
         {
-            var result = _aes.Encrypt(text, key, iv);
+            var result = Aes.Encrypt(text, key, iv);
             Assert.IsNotNull(result);
         }
 
         [Test]
         [TestCaseSource(nameof(AesEncryptTestCases))]
-        public void AesDecryptTest(string text, string key, string iv)
+        public void AesDecrypt_WithValidData_ShouldReturnDecryptedString(string text, string key, string iv)
         {
-            var encryptString = _aes.Encrypt(text, key, iv);
+            var encryptString = Aes.Encrypt(text, key, iv);
             Assert.IsNotNull(encryptString);
-            var result = _aes.Decrypt(encryptString, key, iv);
+            var result = Aes.Decrypt(encryptString, key, iv);
             Assert.IsNotNull(result);
             Assert.AreEqual(text, result);
         }

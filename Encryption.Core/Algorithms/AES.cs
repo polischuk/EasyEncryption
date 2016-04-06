@@ -1,14 +1,19 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using Encryption.Framework.Interfaces;
 
 namespace Encryption.Framework.Algorithms
 {
-    public class Aes : IAes
+    public static class Aes
     {
-        public string Encrypt(string plainText, string key, string iv)
+        /// <summary>
+        /// Encrypt text using AES algorithm.
+        /// </summary>
+        /// <param name="plainText">The text that you want to encrypt</param>
+        /// <param name="key">Symmetric key that is used for encryption and decryption.</param>
+        /// <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+        /// <returns>Encrypt text string</returns>
+        public static string Encrypt(string plainText, string key, string iv)
         {
             var bytes = Encoding.UTF8.GetBytes(plainText); // parse text to bites array
             using (var desCryptoService = new AesCryptoServiceProvider())
@@ -27,8 +32,14 @@ namespace Encryption.Framework.Algorithms
                 }
             }
         }
-        
-        public string Decrypt(string encryptedText, string key, string iv)
+        /// <summary>
+        /// Decrypt text using AES algorithm.
+        /// </summary>
+        /// <param name="encryptedText">Your encrypted string</param>
+        /// <param name="key">Symmetric key that is used for encryption and decryption.</param>
+        /// <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
+        /// <returns>Decrypted string</returns>
+        public static string Decrypt(string encryptedText, string key, string iv)
         {
             var encryptedTextByte = Encoding.Default.GetBytes(encryptedText); // parse text to bites array
             using (var aesCryptoServiceProvider = new AesCryptoServiceProvider())

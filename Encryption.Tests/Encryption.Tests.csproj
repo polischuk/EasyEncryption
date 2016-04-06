@@ -71,6 +71,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Algorithms\AesTests.cs" />
+    <Compile Include="Algorithms\AesThenHmacTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
