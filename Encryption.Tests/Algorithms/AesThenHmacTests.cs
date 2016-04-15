@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace Encryption.Tests.Algorithms
 {
     [TestFixture]
-    [Category("AES")]
+    [Category("AESThenHmac")]
     public class AesThenHmacTests
     {
         #region SimpleEncryptWithPassword

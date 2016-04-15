@@ -70,15 +70,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Algorithms\DesTests.cs" />
     <Compile Include="Algorithms\AesTests.cs" />
     <Compile Include="Algorithms\AesThenHmacTests.cs" />
+    <Compile Include="Algorithms\RsaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Encryption.Core\Encryption.Framework.csproj">
+    <ProjectReference Include="..\Encryption.Framework\Encryption.Framework.csproj">
       <Project>{8291C00A-362E-4409-B761-78B7DFB0904D}</Project>
       <Name>Encryption.Framework</Name>
     </ProjectReference>
