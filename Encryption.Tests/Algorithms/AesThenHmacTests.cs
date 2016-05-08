@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Encryption.Framework.Algorithms;
+using EasyEncryption.Framework.Algorithms;
 using NUnit.Framework;
 
-namespace Encryption.Tests.Algorithms
+namespace EasyEncryption.Tests.Algorithms
 {
     [TestFixture]
     [Category("AESThenHmac")]

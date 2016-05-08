@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EasyEncryption.Framework.Algorithms;
 using NUnit.Framework;
 
-namespace Encryption.Tests.Algorithms
+namespace EasyEncryption.Tests.Algorithms
 {
     [TestFixture]
     [Category("MD5")]
@@ -18,7 +15,7 @@ namespace Encryption.Tests.Algorithms
         [TestCaseSource(nameof(CalculateMD5HashTestCases))]
         public void CalculateMD5Hash_WithValidData_ShouldReturnMD5String(string text)
         {
-            var result = Encryption.Framework.Algorithms.MD5.CalculateMD5Hash(text);
+            var result = MD5.CalculateMD5Hash(text);
             Assert.IsNotNull(result);
             Console.WriteLine(result);
         }
@@ -30,7 +27,7 @@ namespace Encryption.Tests.Algorithms
         public void IsValidMD5_WithInvalidMD5_ShouldReturnFalse(string text)
         {
             var md5Hash = "012345";
-            var result = Encryption.Framework.Algorithms.MD5.IsValidMD5(md5Hash);
+            var result = MD5.IsValidMD5(md5Hash);
             Assert.False(result);
         }
 
@@ -38,9 +35,9 @@ namespace Encryption.Tests.Algorithms
         [TestCaseSource(nameof(CalculateMD5HashTestCases))]
         public void IsValidMD5_WithValidMD5_ShouldReturnTrue(string text)
         {
-            var md5Hash = Encryption.Framework.Algorithms.MD5.CalculateMD5Hash(text);
+            var md5Hash = MD5.CalculateMD5Hash(text);
             Assert.IsNotNull(md5Hash);
-            var result = Encryption.Framework.Algorithms.MD5.IsValidMD5(md5Hash);
+            var result = MD5.IsValidMD5(md5Hash);
             Assert.True(result);
         }
         #endregion

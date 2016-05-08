@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Encryption.Framework.Algorithms
+namespace EasyEncryption.Framework.Algorithms
 {
     public static class Aes
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Encryption.Framework.Algorithms;
+using EasyEncryption.Framework.Algorithms;
 using NUnit.Framework;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace Encryption.Tests.Algorithms
+namespace EasyEncryption.Tests.Algorithms
 {
     [TestFixture]
     [Category("AES")]
