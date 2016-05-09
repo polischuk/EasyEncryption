@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EasyEncryption.Framework.Algorithms
+namespace EasyEncryption
 {
     public static class AesThenHmac
     {

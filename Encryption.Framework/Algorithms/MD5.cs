@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EasyEncryption.Framework.Algorithms
+namespace EasyEncryption
 {
     public static class MD5
     {
@@ -12,7 +12,7 @@ namespace EasyEncryption.Framework.Algorithms
         /// </summary>
         /// <param name="text">String to be hashed.</param>
         /// <returns>Hash as string.</returns>
-        public static string CalculateMD5Hash(string text)
+        public static string ComputeMD5Hash(string text)
         {
             var encodedPassword = new UTF8Encoding().GetBytes(text);
             var hash = ((HashAlgorithm)CryptoConfig.CreateFromName("MD5")).ComputeHash(encodedPassword);

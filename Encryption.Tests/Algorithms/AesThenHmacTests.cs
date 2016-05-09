@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasyEncryption.Framework.Algorithms;
 using NUnit.Framework;
 
 namespace EasyEncryption.Tests.Algorithms

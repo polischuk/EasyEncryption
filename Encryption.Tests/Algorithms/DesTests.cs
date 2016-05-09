@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using EasyEncryption.Framework.Algorithms;
 using NUnit.Framework;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
@@ -13,7 +12,7 @@ namespace EasyEncryption.Tests.Algorithms
         [TestCaseSource(nameof(DesEncryptTestCases))]
         public void DesEncrypt_WithValidData_ShouldReturnEncryptedString(string text, string key, string iv)
         {
-            var result = Des.Encrypt(text, key, iv);
+            var result = DES.Encrypt(text, key, iv);
             Assert.IsNotNull(result);
         }
 
@@ -21,9 +20,9 @@ namespace EasyEncryption.Tests.Algorithms
         [TestCaseSource(nameof(DesEncryptTestCases))]
         public void DesDecrypt_WithValidData_ShouldReturnDecryptedString(string text, string key, string iv)
         {
-            var encryptString = Des.Encrypt(text, key, iv);
+            var encryptString = DES.Encrypt(text, key, iv);
             Assert.IsNotNull(encryptString);
-            var result = Des.Decrypt(encryptString, key, iv);
+            var result = DES.Decrypt(encryptString, key, iv);
             Assert.IsNotNull(result);
             Assert.AreEqual(text, result);
         }

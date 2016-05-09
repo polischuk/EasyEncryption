@@ -2,9 +2,9 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EasyEncryption.Framework.Algorithms
+namespace EasyEncryption
 {
-    public class Des
+    public class DES
     {
         /// <summary>
         /// Encrypt text using DES algorithm.

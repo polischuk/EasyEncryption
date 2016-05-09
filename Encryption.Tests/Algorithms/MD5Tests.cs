@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using EasyEncryption.Framework.Algorithms;
 using NUnit.Framework;
 
 namespace EasyEncryption.Tests.Algorithms
 {
     [TestFixture]
     [Category("MD5")]
-    class MD5Tests
+    public class MD5Tests
     {
 
         #region CalculateMD5Hash
@@ -15,7 +14,7 @@ namespace EasyEncryption.Tests.Algorithms
         [TestCaseSource(nameof(CalculateMD5HashTestCases))]
         public void CalculateMD5Hash_WithValidData_ShouldReturnMD5String(string text)
         {
-            var result = MD5.CalculateMD5Hash(text);
+            var result = MD5.ComputeMD5Hash(text);
             Assert.IsNotNull(result);
             Console.WriteLine(result);
         }
@@ -35,7 +34,7 @@ namespace EasyEncryption.Tests.Algorithms
         [TestCaseSource(nameof(CalculateMD5HashTestCases))]
         public void IsValidMD5_WithValidMD5_ShouldReturnTrue(string text)
         {
-            var md5Hash = MD5.CalculateMD5Hash(text);
+            var md5Hash = MD5.ComputeMD5Hash(text);
             Assert.IsNotNull(md5Hash);
             var result = MD5.IsValidMD5(md5Hash);
             Assert.True(result);

@@ -2,9 +2,9 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EasyEncryption.Framework.Algorithms
+namespace EasyEncryption
 {
-    public static class Aes
+    public static class AES
     {
         /// <summary>
         /// Encrypt text using AES algorithm.
