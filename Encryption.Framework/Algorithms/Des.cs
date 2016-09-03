@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EasyEncryption
 {
-    public class DES
+    public abstract class DES
     {
         /// <summary>
         /// Encrypt text using DES algorithm.
@@ -22,7 +22,7 @@ namespace EasyEncryption
                 desCryptoService.IV = Encoding.ASCII.GetBytes(iv);
                 using (var memoryStream = new MemoryStream())
                 {
-                    var cryptoStream = new CryptoStream(memoryStream, desCryptoService.CreateEncryptor(), CryptoStreamMode.Write); 
+                    var cryptoStream = new CryptoStream(memoryStream, desCryptoService.CreateEncryptor(), CryptoStreamMode.Write);
                     cryptoStream.Write(pText, 0, pText.Length);
                     cryptoStream.Close();
                     memoryStream.Close();
@@ -32,13 +32,13 @@ namespace EasyEncryption
             }
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="encryptedText"></param>
         /// <param name="key">Symmetric key that is used for encryption and decryption.</param>
         /// <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
         /// <returns></returns>
-        public static string Decrypt(string encryptedText,string key, string iv)
+        public static string Decrypt(string encryptedText, string key, string iv)
         {
             var encryptedTextByte = Encoding.Default.GetBytes(encryptedText); // parse text to bites array
             using (var desCryptoService = new DESCryptoServiceProvider())

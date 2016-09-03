@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EasyEncryption
 {
-    public static class MD5
+    public abstract class MD5
     {
         /// <summary>
         /// Returns a MD5 hash as a string

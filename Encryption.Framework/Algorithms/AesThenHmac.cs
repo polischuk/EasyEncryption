@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EasyEncryption
 {
-    public static class AesThenHmac
+    public abstract class AesThenHmac
     {
         private static readonly RandomNumberGenerator Random = RandomNumberGenerator.Create();
 

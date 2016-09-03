@@ -38,6 +38,7 @@
     <Compile Include="Algorithms\AesThenHmac.cs" />
     <Compile Include="Algorithms\DES.cs" />
     <Compile Include="Algorithms\MD5.cs" />
+    <Compile Include="Algorithms\RSA.cs" />
     <Compile Include="Algorithms\SHA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

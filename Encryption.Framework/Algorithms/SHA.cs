@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EasyEncryption
 {
-    public static class SHA
+    public abstract class SHA
     {
         public static string ComputeSHA1Hash(string stringToHash)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EasyEncryption
 {
-    public static class AES
+    public abstract class AES
     {
         /// <summary>
         /// Encrypt text using AES algorithm.
@@ -59,7 +59,6 @@ namespace EasyEncryption
                         }
                     }
                 }
-
             }
         }
     }

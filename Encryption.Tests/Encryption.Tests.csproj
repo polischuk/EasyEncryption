@@ -52,6 +52,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -70,6 +71,7 @@
     <Compile Include="Algorithms\AesTests.cs" />
     <Compile Include="Algorithms\AesThenHmacTests.cs" />
     <Compile Include="Algorithms\MD5Tests.cs" />
+    <Compile Include="Algorithms\RSATests.cs" />
     <Compile Include="Algorithms\SHATests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
