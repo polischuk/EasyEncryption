@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace EasyEncryption
         /// <param name="plainText">The text that you want to encrypt</param>
         /// <param name="key">Symmetric key that is used for encryption and decryption.</param>
         /// <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
-        /// <returns>Encrypt text string</returns>
+        /// <returns>Encrypt base64 string</returns>
         public static string Encrypt(string plainText, string key, string iv)
         {
             var bytes = Encoding.UTF8.GetBytes(plainText); // parse text to bites array
@@ -27,21 +28,20 @@ namespace EasyEncryption
                     cryptoStream.Write(bytes, 0, bytes.Length);
                     cryptoStream.Close();
                     memoryStream.Close();
-                    var result = Encoding.Default.GetString(memoryStream.ToArray());
-                    return result;
+                    return Convert.ToBase64String(memoryStream.ToArray());
                 }
             }
         }
         /// <summary>
         /// Decrypt text using AES algorithm.
         /// </summary>
-        /// <param name="encryptedText">Your encrypted string</param>
+        /// <param name="encryptedText">Your encrypted base64 string</param>
         /// <param name="key">Symmetric key that is used for encryption and decryption.</param>
         /// <param name="iv">Initialization vector (IV) for the symmetric algorithm.</param>
         /// <returns>Decrypted string</returns>
         public static string Decrypt(string encryptedText, string key, string iv)
         {
-            var encryptedTextByte = Encoding.Default.GetBytes(encryptedText); // parse text to bites array
+            var encryptedTextByte = Convert.FromBase64String(encryptedText); ; // parse text to bites array
             using (var aesCryptoServiceProvider = new AesCryptoServiceProvider())
             {
                 aesCryptoServiceProvider.Key = Encoding.UTF8.GetBytes(key);
@@ -55,6 +55,8 @@ namespace EasyEncryption
                         using (var srDecrypt = new StreamReader(csDecrypt))
                         {
                             var res = srDecrypt.ReadToEnd();
+                            csDecrypt.Close();
+                            srDecrypt.Close();
                             return res;
                         }
                     }
